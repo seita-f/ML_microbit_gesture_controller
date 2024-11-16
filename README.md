@@ -2,8 +2,7 @@
 I started this project with the aim of creating something that incorporates machine learning using a micro:bit I had at home. <br>
 The goal is to use the Spotify API so that specific gestures can trigger actions like going back to the previous track, playing the next track, or adjusting the volume up and down.
 
-<img src="https://github.com/user-attachments/assets/b23d943d-fa54-4ad5-afda-329d3551cf1a" alt="IMG_2807" width="50%"/>
-<img src="https://github.com/user-attachments/assets/fc7138cb-e303-4894-8152-3bbc009396a8" width="50%"/>
+<img src="https://github.com/user-attachments/assets/9c759aec-986d-469e-ba4a-92731a23bf3e" alt="IMG_2807" width="50%"/>
 
 
 # Technology
