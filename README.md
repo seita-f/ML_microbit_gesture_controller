@@ -12,7 +12,6 @@ The goal is to use the Spotify API so that specific gestures can trigger actions
 - Web Bluetooth API
 - Spotify API 
 - Fourier Transform
-- CI/CD (Lint)
 
 # Flow
 
