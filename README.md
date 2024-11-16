@@ -34,7 +34,7 @@ I collected the following gestures (data)
 - shuffle
 
 <img src="https://github.com/user-attachments/assets/e896b222-0f41-4d9a-958a-a97b49b2ef91" width="80%"/>
-<img src="https://github.com/user-attachments/assets/fa6d0056-4bc1-4d2b-b354-b6dfd1d17703" width="80%"/>
+<img src="https://github.com/user-attachments/assets/3c1d764a-030f-42a2-b3ee-4da13b2dee7a" width="80%"/>
 <img src="https://github.com/user-attachments/assets/7ce1695e-7057-41f5-899b-aa41d7a951c0" width="80%"/>
 
 
