@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro:bit 加速度データ 計測</title>
+    <style>
+        /* ページ全体の背景を薄い灰色に設定 */
+        body {
+            background-color: #f0f0f0; /* 薄い灰色 */
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            color: #333;
+        }
+        /* ボタンのスタイルを設定 */
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50; /* 緑色のボタン */
+            color: white;
+        }
+        button:disabled {
+            background-color: #ccc; /* 無効時は薄いグレー */
+            cursor: not-allowed;
+        }
+        /* 入力フィールドのスタイル */
+        input[type="text"] {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        /* データ表示部分のスタイル */
+        .data-display {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h2>Micro:bit 加速度データ 計測</h2>
+    <label for="filename">ファイル名:</label>
+    <input type="text" id="filename" placeholder="acceleration_data.csv">
+    <button id="connect">micro:bitに接続</button>
+    <button id="start" disabled>計測開始</button>
+    <button id="stop" disabled>計測終了</button>
+    <button id="download" disabled>CSVでインストール</button>
+
+    <h3>リアルタイム 加速度データ</h3>
+    <div class="data-display">
+        X: <span id="x-value">-</span><br>
+        Y: <span id="y-value">-</span><br>
+        Z: <span id="z-value">-</span>
+    </div>
+
+    <!-- JavaScriptファイルの読み込み -->
+    <script src="script.js"></script>
+</body>
+</html>
