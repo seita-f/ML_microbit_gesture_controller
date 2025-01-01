@@ -1,11 +1,11 @@
 const ACCELEROMETER_SERVICE_UUID = 'e95d0753-251d-470a-a062-fa1922dfa9a8';
 const ACCELEROMETER_CHARACTERISTICS_UUID = 'e95dca4b-251d-470a-a062-fa1922dfa9a8';
 
-let accelerometerData = [];  // X, Y, Zのデータを格納するリスト
-let characteristic;          // BLEキャラクタリスティックへの参照
-let isMeasuring = false;     // 計測中かどうかのフラグ
+let accelerometerData = [];  // X, Y, Z data
+let characteristic;          
+let isMeasuring = false;     
 
-// ボタンのイベントリスナーを設定
+// event listener
 document.getElementById('connect').addEventListener('click', connect);
 document.getElementById('start').addEventListener('click', startMeasurement);
 document.getElementById('stop').addEventListener('click', stopMeasurement);
@@ -14,7 +14,7 @@ document.getElementById('download').addEventListener('click', downloadCSV);
 function connect() {
     console.log('Attempting to connect...');
 
-    // BLEデバイスをスキャンする
+    // scan BLE device
     navigator.bluetooth.requestDevice({
         filters: [{
             namePrefix: 'BBC micro:bit'
@@ -37,11 +37,11 @@ function connect() {
         console.log('Characteristic obtained');
         characteristic = char;
         
-        // 常に加速度データを通知で取得し、画面に表示
+        // get accelerometerData and display
         characteristic.startNotifications();
         characteristic.addEventListener('characteristicvaluechanged', handleAccelerationData);
 
-        // 計測開始ボタンを有効化
+        // start measuring
         document.getElementById('start').disabled = false;
     })
     .catch(error => {
@@ -49,14 +49,14 @@ function connect() {
     });
 }
 
-// 計測開始
+// start measurement 
 function startMeasurement() {
     isMeasuring = true;
     
-    // 測定を開始するたびにデータをリセット
+    // reset data
     accelerometerData = [];
 
-    // ボタンの状態を更新
+    // update button  
     document.getElementById('start').disabled = true;
     document.getElementById('stop').disabled = false;
     document.getElementById('download').disabled = true;
@@ -64,11 +64,11 @@ function startMeasurement() {
     console.log('Measurement started');
 }
 
-// 計測終了
+// finsih measurement
 function stopMeasurement() {
     isMeasuring = false;
 
-    // ボタンの状態を更新
+    // update button
     document.getElementById('start').disabled = false;
     document.getElementById('stop').disabled = true;
     document.getElementById('download').disabled = false;
@@ -76,7 +76,7 @@ function stopMeasurement() {
     console.log('Measurement stopped');
 }
 
-// 加速度データが変化したときの処理
+// accelerometerData changes 
 function handleAccelerationData(event) {
     const value = event.target.value;
     const x = value.getInt16(0, true);
@@ -84,19 +84,19 @@ function handleAccelerationData(event) {
     const z = value.getInt16(4, true);
     const timestamp = new Date().toISOString();
 
-    // データ表示（常に更新）
+    // display data
     document.getElementById('x-value').textContent = x;
     document.getElementById('y-value').textContent = y;
     document.getElementById('z-value').textContent = z;
 
-    // 計測中のみデータをリストに追加
+    // add data 
     if (isMeasuring) {
         accelerometerData.push({ timestamp, x, y, z });
         console.log(`Data added: X=${x}, Y=${y}, Z=${z}`);
     }
 }
 
-// CSVファイルのダウンロード
+// download CSV file
 function downloadCSV() {
     const filename = document.getElementById('filename').value || 'acceleration_data.csv';
     let csvContent = "data:text/csv;charset=utf-8,Time,X,Y,Z\n";
