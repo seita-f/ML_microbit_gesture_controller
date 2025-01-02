@@ -11,15 +11,6 @@ The goal is to recognize the specific gestures.
 - HTML/CSS/JS
 - Web Bluetooth API
 
-# Flow
-
-1. Data Collection (Accelerometer) from the microboard
-2. Basic data analysis
-3. Data preprocessing
-4. Algorithm selection
-5. Model training
-6. Model validation
-
 # Data Collection via Bluetooth
 
 <img src="https://github.com/user-attachments/assets/30b4fc00-7d83-485b-a3ec-2401e4ae9b3a" width="80%"/>
@@ -34,16 +25,3 @@ I collected the following gestures (data)
 
 <img src="https://github.com/user-attachments/assets/3c1d764a-030f-42a2-b3ee-4da13b2dee7a" width="80%"/>
 
-# Evalation
-
-### Currently Working on this part
-
-
-| Model | Data    | Accuracy |
-| :---:   | :---: | :---: |
-| LSTM | Normal  | ?   |
-|  | Normal + FFT  | ?  |
-|  | Removed Noise + FFT  | ?   |
-| Random Forest | Normal (mean, std, max, min)  | 0.66 |
-|  | Normal + FFT (mean, std, max, min) | 0.56 |
-|  | Removed Noise + FFT (mean, std, max, min) | 0.54 |
